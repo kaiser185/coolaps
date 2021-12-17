@@ -1,6 +1,6 @@
 # COOLAPS Docker Image
 
-This repository contains the code necessary to create a Constraint Object-Oriented Logic Programming as a Service (COOLAPS) environment docker image. It has been created by the Center for Research for Informatics at University of Paris 1 Panthéon-Sorbonne. The motivation behind this is enabling developers to quickly bootstrap a working COOLAPS environment that allows them to very quickly begin developing their own web services based on the unique combination of Constraint Logic Programming (as a service) and Object-Oriented Logic programming.
+This repository contains the code necessary to create a Constraint Object-Oriented Logic Action Programming as a Service (COOLAPS) environment docker image. It has been created by the Center for Research for Informatics at University of Paris 1 Panthéon-Sorbonne. The motivation behind this is enabling developers to quickly bootstrap a working COOLAPS environment that allows them to very quickly begin developing their own web services based on the unique combination of Constraint Logic Programming (as a service) and Object-Oriented Logic programming.
 
 Included in this repository are code samples with the necessary files to construct a headless daemon server, so that it straighforward to bootstrap your own project on this basis.
 
@@ -54,3 +54,5 @@ This target will clean your docker environment, pruning stale images, containers
 ## Bootstrapping your application
 Within the _sample-src_ folder, you will find a minimal working example of a COOLAPS web server that leverages SWI-Prolog's HTTP server libraries. In addition, and for convenience, the _clpfd_ library is autoloaded making declarative integer arithmetic predicates available everywhere by default. This can be used as your starting point for creating your own COOLAPS application.
 
+In terms of action programming through the special flux kernel, we have included its source and made it available as a category. To include it within your application you must add the _sflux_ category into the objects that will use it, as you cannot directly use a category as a standalone object.
+This category is fully documented and is a faithful port of the original special flux kernel exposing the following predicates: _holds/2_ _holds/3_ _minus/3_ _plus/3_ _update/4_. In addition, should you wish to perform actions as side-effects into either a simulation or the real world, a base version of a _execute/3_ predicate is provided, but you will need to provide adequate definitions of _perform/1_ and _state\_update/3_ at a minimum within your container object. You are free, however, to change the arities and behavior of these predicates as you please to fit your particular application.

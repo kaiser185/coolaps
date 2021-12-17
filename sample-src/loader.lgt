@@ -13,7 +13,8 @@ version: 0.2
 :- initialization((
 	logtalk_load([
 		%% Your files go here
-		server
+		server,
+		sflux
 	],[
 		%% Uncomment this line to compile your code in debug mode
 		%% Note: make sure the logtalk settings do not conflict with this setting to ensure it works as intended
